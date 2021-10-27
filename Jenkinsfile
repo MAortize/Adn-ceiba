@@ -39,7 +39,7 @@ pipeline {
         			submoduleCfg: [],
         			userRemoteConfigs: [[
         				credentialsId: 'GitHub_mortize',
-        				url:'https://github.com/MAortize/ADN_Autocinema.git'
+        				url:'https://github.com/MAortize/Adn-ceiba.git'
         			]]
         ])
       }
