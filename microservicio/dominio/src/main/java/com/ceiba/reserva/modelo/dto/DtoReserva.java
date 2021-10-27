@@ -10,11 +10,14 @@ import java.time.LocalTime;
 @AllArgsConstructor
 public class DtoReserva {
 
+    private final Long idReserva;
     private String codigo;
     private String pelicula;
     private LocalDate fechaCreacion;
     private LocalTime horaCreacion;
     private LocalDate fechaReserva;
     private LocalTime horaReserva;
+    private final Integer noPuesto;
+    private final Long idUsuario;
 
 }
