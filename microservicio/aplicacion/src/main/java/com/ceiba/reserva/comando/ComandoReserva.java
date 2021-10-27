@@ -14,7 +14,7 @@ import java.time.LocalTime;
 @NoArgsConstructor
 public class ComandoReserva {
 
-    private Long id_reserva;
+    private Long idReserva;
     private String codigo;
     private String pelicula;
     private LocalDate fechaCreacion;
@@ -22,6 +22,6 @@ public class ComandoReserva {
     private LocalDate fechaReserva;
     private LocalTime horaReserva;
     private Integer noPuesto;
-    private Long id_usuario;
+    private Long idUsuario;
 
 }

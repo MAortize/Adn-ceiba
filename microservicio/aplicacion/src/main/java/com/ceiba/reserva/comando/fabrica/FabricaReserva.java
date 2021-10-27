@@ -7,7 +7,7 @@ public class FabricaReserva {
 
     public Reserva crear(ComandoReserva comandoReserva){
         return new Reserva(
-                comandoReserva.getId_reserva(),
+                comandoReserva.getIdReserva(),
                 comandoReserva.getCodigo(),
                 comandoReserva.getPelicula(),
                 comandoReserva.getFechaCreacion(),
@@ -15,7 +15,7 @@ public class FabricaReserva {
                 comandoReserva.getFechaReserva(),
                 comandoReserva.getHoraReserva(),
                 comandoReserva.getNoPuesto(),
-                comandoReserva.getId_usuario()
+                comandoReserva.getIdUsuario()
         );
     }
 

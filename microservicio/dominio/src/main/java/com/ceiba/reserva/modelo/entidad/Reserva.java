@@ -20,24 +20,21 @@ public class Reserva {
     private static final String EL_TIEMPO_PARA_RESERVAR_NO_HA_INICIADO = "Todavia no esta disponible el horario para hacer una reserva";
 
 
-    //private static final Integer CAPACIDAD_MAXIMA_DE_PUESTOS = 100;
-    //private static final Double TARIFA_ENTRADA_AUTOMOVILES = 40.000;
-    //private static final Double TARIFA_ENTRADA_CAMIONETA = 60.000;
+
     private static final Integer INICIO_HORARIO_DE_ATENCION = 8;
     private static final Integer FIN_HORARIO_DE_ATENCION = 17;
 
-    //private static final String SE_DEBE_INGRESAR_LA_FECHA_CREACION = "Se debe ingresar la fecha de creación";
 
 
-    private Long id_reserva;
+    private Long idReserva;
     private String codigo;
     private String pelicula;
     private LocalDate fechaCreacion;
     private LocalTime horaCreacion;
     private LocalDate fechaReserva;
     private LocalTime horaReserva;
-    private Integer no_puesto;
-    private Long id_cliente;
+    private Integer noPuesto;
+    private Long idUsuario;
 
     public Reserva(Long idReserva, String codigo, String pelicula, LocalDate fechaCreacion, LocalTime horaCreacion, LocalDate fechaReserva, LocalTime horaReserva, Integer noPuesto, Long idCliente) {
 
@@ -49,14 +46,14 @@ public class Reserva {
         validarMenor(INICIO_HORARIO_DE_ATENCION,horaCreacion.getHour(), EL_TIEMPO_PARA_RESERVAR_NO_HA_INICIADO);
         validarMenor(horaCreacion.getHour(),FIN_HORARIO_DE_ATENCION, EL_TIEMPO_DE_RESERVA_FINALIZO);
 
-        this.id_reserva = idReserva;
+        this.idReserva = idReserva;
         this.codigo = codigo;
         this.pelicula = pelicula;
         this.fechaCreacion = fechaCreacion;
         this.horaCreacion = horaCreacion;
         this.fechaReserva = fechaReserva;
         this.horaReserva = horaReserva;
-        this.no_puesto = noPuesto;
-        this.id_cliente = idCliente;
+        this.noPuesto = noPuesto;
+        this.idUsuario = idCliente;
     }
 }
