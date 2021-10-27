@@ -6,10 +6,9 @@ import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Date;
+
 
 public class MapeoReserva implements RowMapper<DtoReserva>, MapperResult {
 

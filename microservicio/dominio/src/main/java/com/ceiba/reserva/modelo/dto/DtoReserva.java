@@ -1,7 +1,6 @@
 package com.ceiba.reserva.modelo.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -11,64 +10,62 @@ import java.time.LocalTime;
 
 public class DtoReserva {
 
-    private Long idReserva;
-    private String codigo;
-    private String pelicula;
-    private LocalDate fechaCreacion;
-    private LocalTime horaCreacion;
-    private LocalDate fechaReserva;
-    private LocalTime horaReserva;
-    private Integer noPuesto;
-    private Long idUsuario;
+    private Long idReservaDto;
+    private String codigoDto;
+    private String peliculaDto;
+    private LocalDate fechaCreacionDto;
+    private LocalTime horaCreacionDto;
+    private LocalDate fechaReservaDto;
+    private LocalTime horaReservaDto;
+    private Integer noPuestoDto;
+    private Long idUsuarioReservaDto;
 
-    public Long getIdReserva() {
-        return idReserva;
+    public Long getIdReservaDto() {
+        return idReservaDto;
     }
 
-    public String getCodigo() {
-        return codigo;
+    public String getCodigoDto() {
+        return codigoDto;
     }
 
-    public String getPelicula() {
-        return pelicula;
+    public String getPeliculaDto() {
+        return peliculaDto;
     }
 
-    public LocalDate getFechaCreacion() {
-        return fechaCreacion;
+    public LocalDate getFechaCreacionDto() {
+        return fechaCreacionDto;
     }
 
-    public LocalTime getHoraCreacion() {
-        return horaCreacion;
+    public LocalTime getHoraCreacionDto() {
+        return horaCreacionDto;
     }
 
-    public LocalDate getFechaReserva() {
-        return fechaReserva;
+    public LocalDate getFechaReservaDto() {
+        return fechaReservaDto;
     }
 
-    public LocalTime getHoraReserva() {
-        return horaReserva;
+    public LocalTime getHoraReservaDto() {
+        return horaReservaDto;
     }
 
-    public Integer getNoPuesto() {
-        return noPuesto;
+    public Integer getNoPuestoDto() {
+        return noPuestoDto;
     }
 
-    public Long getIdUsuario() {
-        return idUsuario;
+    public Long getIdUsuarioReservaDto() {
+        return idUsuarioReservaDto;
     }
 
-    public DtoReserva(Long id, String codigo, String pelicula, LocalDate fechaCreacion, LocalTime horaCreacion, LocalDate fechaReserva, LocalTime horaReserva, Integer noPuest, Long idCliente) {
-
-        this.idReserva = id;
-        this.codigo = codigo;
-        this.pelicula = pelicula;
-        this.fechaCreacion = fechaCreacion;
-        this.horaCreacion = horaCreacion;
-        this.fechaReserva = fechaReserva;
-        this.horaReserva = horaReserva;
-        this.noPuesto = noPuest;
-        this.idUsuario = idCliente;
+    public DtoReserva(Long idReservaDto, String codigoDto, String peliculaDto, LocalDate fechaCreacionDto, LocalTime horaCreacionDto, LocalDate fechaReservaDto,
+                      LocalTime horaReservaDto, Integer noPuestoDto, Long idUsuarioReservaDto) {
+        this.idReservaDto = idReservaDto;
+        this.codigoDto = codigoDto;
+        this.peliculaDto = peliculaDto;
+        this.fechaCreacionDto = fechaCreacionDto;
+        this.horaCreacionDto = horaCreacionDto;
+        this.fechaReservaDto = fechaReservaDto;
+        this.horaReservaDto = horaReservaDto;
+        this.noPuestoDto = noPuestoDto;
+        this.idUsuarioReservaDto = idUsuarioReservaDto;
     }
-
-
 }
