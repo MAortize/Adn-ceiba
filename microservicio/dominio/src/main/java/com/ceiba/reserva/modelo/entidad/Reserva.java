@@ -26,15 +26,15 @@ public class Reserva {
 
 
 
-    private Long idReserva;
+
     private String codigo;
     private String pelicula;
     private LocalDate fechaCreacion;
     private LocalTime horaCreacion;
     private LocalDate fechaReserva;
     private LocalTime horaReserva;
-    private Integer noPuesto;
-    private Long idUsuario;
+
+
 
     public Reserva(Long idReserva, String codigo, String pelicula, LocalDate fechaCreacion, LocalTime horaCreacion, LocalDate fechaReserva, LocalTime horaReserva, Integer noPuesto, Long idCliente) {
 
@@ -46,14 +46,13 @@ public class Reserva {
         validarMenor(INICIO_HORARIO_DE_ATENCION,horaCreacion.getHour(), EL_TIEMPO_PARA_RESERVAR_NO_HA_INICIADO);
         validarMenor(horaCreacion.getHour(),FIN_HORARIO_DE_ATENCION, EL_TIEMPO_DE_RESERVA_FINALIZO);
 
-        this.idReserva = idReserva;
+
         this.codigo = codigo;
         this.pelicula = pelicula;
         this.fechaCreacion = fechaCreacion;
         this.horaCreacion = horaCreacion;
         this.fechaReserva = fechaReserva;
         this.horaReserva = horaReserva;
-        this.noPuesto = noPuesto;
-        this.idUsuario = idCliente;
+
     }
 }
