@@ -24,7 +24,7 @@ public class ServicioCrearReservaTest {
         // arrange
         LocalDate fechaCreacion = LocalDate.now();
         LocalTime horaCreacion = LocalTime.now();
-        Reserva reserva = new ReservaTestDataBuilder().conFechaCreacion(fechaCreacion).conHoraCreacion(horaCreacion).build();
+        Reserva reserva = new ReservaTestDataBuilder().conFechaCreacion(fechaCreacion).conHoraCreacion(horaCreacion.minusHours(3)).build();
         RepositorioReserva repositorioReserva = Mockito.mock(RepositorioReserva.class);
         Mockito.when(repositorioReserva.existe(Mockito.anyString())).thenReturn(false);
         Mockito.when(repositorioReserva.crear(reserva)).thenReturn(2L);
