@@ -10,22 +10,22 @@ public class ServicioCrearReserva {
     private static final String LA_RESERVA_YA_EXISTE_EN_EL_SISTEMA = "La reserva ya existe en el sistema";
 
     private final RepositorioReserva repositorioReserva;
-    private final RepositorioUsuario repositorioUsuario;
 
-    public ServicioCrearReserva(RepositorioReserva repositorioReserva, RepositorioUsuario repositorioUsuario) {
+
+    public ServicioCrearReserva(RepositorioReserva repositorioReserva) {
         this.repositorioReserva = repositorioReserva;
-        this.repositorioUsuario = repositorioUsuario;
+
     }
 
-    public Long ejecutar(Reserva reserva, Usuario usuario){
-        validarExistenciaPrevia(reserva, usuario);
+    public Long ejecutar(Reserva reserva){
+        validarExistenciaPrevia(reserva);
         return this.repositorioReserva.crear(reserva);
     }
 
-    private void validarExistenciaPrevia(Reserva reserva, Usuario usuario) {
+    private void validarExistenciaPrevia(Reserva reserva) {
         boolean existe = this.repositorioReserva.existe(reserva.getCodigo());
-        boolean existeUsu = this.repositorioUsuario.existe(usuario.getNombre());
-        if(existe&&existeUsu) {
+
+        if(existe) {
             throw new ExcepcionDuplicidad(LA_RESERVA_YA_EXISTE_EN_EL_SISTEMA);
         }
     }

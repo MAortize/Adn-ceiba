@@ -24,17 +24,13 @@ public class ServicioCrearReservaTest {
         // arrange
         LocalDate fechaCreacion = LocalDate.now();
         LocalTime horaCreacion = LocalTime.now();
-        Reserva reserva = new ReservaTestDataBuilder().conFechaCreacion(fechaCreacion).conHoraCreacion(horaCreacion.minusHours(4)).build();
-        Usuario usuario = new UsuarioTestDataBuilder().conNombre(null).build();
+        Reserva reserva = new ReservaTestDataBuilder().conFechaCreacion(fechaCreacion).conHoraCreacion(horaCreacion).build();
         RepositorioReserva repositorioReserva = Mockito.mock(RepositorioReserva.class);
-        RepositorioUsuario repositorioUsuario = Mockito.mock(RepositorioUsuario.class);
         Mockito.when(repositorioReserva.existe(Mockito.anyString())).thenReturn(false);
-        Mockito.when(repositorioUsuario.existe(Mockito.anyString())).thenReturn(false);
         Mockito.when(repositorioReserva.crear(reserva)).thenReturn(2L);
-        Mockito.when(repositorioUsuario.crear(usuario)).thenReturn(1L);
-        ServicioCrearReserva servicioCrearReserva = new ServicioCrearReserva(repositorioReserva, repositorioUsuario);
+        ServicioCrearReserva servicioCrearReserva = new ServicioCrearReserva(repositorioReserva);
         // act
-        Long idReserva = servicioCrearReserva.ejecutar(reserva, usuario);
+        Long idReserva = servicioCrearReserva.ejecutar(reserva);
         //- assert
         assertEquals(2L,idReserva);
         Mockito.verify(repositorioReserva, Mockito.times(1)).crear(reserva);
