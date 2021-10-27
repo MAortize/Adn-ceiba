@@ -20,9 +20,9 @@ public class Reserva {
     private static final String EL_TIEMPO_PARA_RESERVAR_NO_HA_INICIADO = "Todavia no esta disponible el horario para hacer una reserva";
 
 
-    private static final Integer CAPACIDAD_MAXIMA_DE_PUESTOS = 100;
-    private static final Double TARIFA_ENTRADA_AUTOMOVILES = 40.000;
-    private static final Double TARIFA_ENTRADA_CAMIONETA = 60.000;
+    //private static final Integer CAPACIDAD_MAXIMA_DE_PUESTOS = 100;
+    //private static final Double TARIFA_ENTRADA_AUTOMOVILES = 40.000;
+    //private static final Double TARIFA_ENTRADA_CAMIONETA = 60.000;
     private static final Integer INICIO_HORARIO_DE_ATENCION = 8;
     private static final Integer FIN_HORARIO_DE_ATENCION = 17;
 
