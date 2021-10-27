@@ -37,6 +37,10 @@ public class ReservaTest {
         assertEquals(1, reserva.getIdReserva());
         assertEquals("12", reserva.getCodigo());
         assertEquals("Avengers", reserva.getPelicula());
+        assertEquals(1, reserva.getIdUsuario());
+        assertEquals(5, reserva.getNoPuesto());
+        assertEquals(LocalDate.of(2021,10,30), reserva.getFechaReserva());
+        assertEquals(LocalTime.of(1,33), reserva.getHoraReserva());
     }
 
     @Test
