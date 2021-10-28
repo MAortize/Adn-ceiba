@@ -18,8 +18,8 @@ public class ComandoReservaTestDataBuilder {
     private Long idUsuario;
 
     public ComandoReservaTestDataBuilder(){
-        codigo="1234";
-        pelicula="avengers";
+        codigo="12346";
+        pelicula="xd";
         fechaCreacion = LocalDate.now();
         horaCreacion = LocalTime.now();
         fechaReserva = LocalDate.of(2021,10,28);

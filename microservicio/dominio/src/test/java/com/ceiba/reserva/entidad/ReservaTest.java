@@ -30,6 +30,7 @@ public class ReservaTest {
         //arrange
         LocalDate fechaCreacion = LocalDate.now();
         LocalTime horaCreacion = LocalTime.now();
+        LocalDate fechaReserva = LocalDate.of(2021,10,30);
         //act
         Reserva reserva = new ReservaTestDataBuilder().conFechaCreacion(fechaCreacion).conHoraCreacion(horaCreacion)
                 .conIdUsuario(1L).conIdReserva(1L).build();
@@ -39,7 +40,7 @@ public class ReservaTest {
         assertEquals("Avengers", reserva.getPelicula());
         assertEquals(1, reserva.getIdUsuario());
         assertEquals(5, reserva.getNoPuesto());
-        assertEquals(LocalDate.of(2021,10,30), reserva.getFechaReserva());
+        assertEquals(fechaReserva, reserva.getFechaReserva());
         assertEquals(LocalTime.of(1,33), reserva.getHoraReserva());
     }
 

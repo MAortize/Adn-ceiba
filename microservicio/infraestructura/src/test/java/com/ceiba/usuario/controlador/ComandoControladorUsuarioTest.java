@@ -51,7 +51,7 @@ class ComandoControladorUsuarioTest {
         Long id = 1L;
         ComandoUsuario usuario = new ComandoUsuarioTestDataBuilder().conNombre("prueba").build();
         // act - assert
-        mocMvc.perform(put("/usuarios/{id_usuario}",id)
+        mocMvc.perform(put("/usuarios/{id}",id)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(usuario)))
                 .andExpect(status().isOk());
@@ -63,7 +63,7 @@ class ComandoControladorUsuarioTest {
         // arrange
         Long id = 2L;
         // act - assert
-        mocMvc.perform(delete("/usuarios/{id_usuario}",id)
+        mocMvc.perform(delete("/usuarios/{id}",id)
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());

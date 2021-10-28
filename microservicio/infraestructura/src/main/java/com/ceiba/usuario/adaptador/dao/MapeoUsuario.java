@@ -13,7 +13,7 @@ public class MapeoUsuario implements RowMapper<DtoUsuario>, MapperResult {
     @Override
     public DtoUsuario mapRow(ResultSet resultSet, int rowNum) throws SQLException {
 
-        Long id_usuario = resultSet.getLong("id_usuario");
+        Long id_usuario = resultSet.getLong("id");
         String nombre = resultSet.getString("nombre");
         String correo = resultSet.getString("correo");
         String tipo_carro = resultSet.getString("tipo_carro");
