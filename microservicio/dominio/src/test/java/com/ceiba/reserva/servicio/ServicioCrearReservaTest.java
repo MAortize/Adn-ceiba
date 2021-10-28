@@ -2,6 +2,7 @@ package com.ceiba.reserva.servicio;
 
 import com.ceiba.BasePrueba;
 import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
+import com.ceiba.dominio.excepcion.ExcepcionSinDatos;
 import com.ceiba.reserva.modelo.entidad.Reserva;
 import com.ceiba.reserva.puerto.repositorio.RepositorioReserva;
 import com.ceiba.reserva.servicio.testdatabuilder.ReservaTestDataBuilder;
@@ -28,7 +29,22 @@ public class ServicioCrearReservaTest {
         Mockito.when(repositorioUsuario.existePorId(Mockito.anyLong())).thenReturn(true);
         ServicioCrearReserva servicioCrearReserva = new ServicioCrearReserva(repositorioReserva, repositorioUsuario);
 
+
         BasePrueba.assertThrows(() -> servicioCrearReserva.ejecutar(reserva), ExcepcionDuplicidad.class, "La reserva ya existe en el sistema");
+
+    }
+
+
+    @Test
+    @DisplayName("Deberia fallar sin un usario para hacer la reserva")
+    void deberiaLanzarUnaExcepcionCuandoSeValideQueNoHayUsarioEnLaReserva(){
+        Reserva reserva = new ReservaTestDataBuilder().build();
+        RepositorioReserva repositorioReserva = Mockito.mock(RepositorioReserva.class);
+        RepositorioUsuario repositorioUsuario = Mockito.mock(RepositorioUsuario.class);
+        Mockito.when(repositorioReserva.existe(Mockito.anyString())).thenReturn(false);
+        Mockito.when(repositorioUsuario.existePorId(Mockito.anyLong())).thenReturn(false);
+        ServicioCrearReserva servicioCrearReserva = new ServicioCrearReserva(repositorioReserva, repositorioUsuario);
+        BasePrueba.assertThrows(() -> servicioCrearReserva.ejecutar(reserva), ExcepcionSinDatos.class, "El usuario no existe");
 
     }
 
