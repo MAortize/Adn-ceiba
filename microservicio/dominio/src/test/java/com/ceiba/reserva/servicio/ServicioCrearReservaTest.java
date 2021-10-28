@@ -54,9 +54,8 @@ public class ServicioCrearReservaTest {
     @DisplayName("Deberia Crear la reserva de manera correcta")
     void deberiaCrearLaReservaDeManeraCorrecta() {
         // arrange
-        LocalDate fechaCreacion = LocalDate.now();
-        LocalTime horaCreacion = LocalTime.now();
-        Reserva reserva = new ReservaTestDataBuilder().conFechaCreacion(fechaCreacion).conHoraCreacion(horaCreacion).build();
+        LocalTime horaCreacion = LocalTime.of(16,00);
+        Reserva reserva = new ReservaTestDataBuilder().conHoraCreacion(horaCreacion).build();
         RepositorioReserva repositorioReserva = Mockito.mock(RepositorioReserva.class);
         RepositorioUsuario repositorioUsuario = Mockito.mock(RepositorioUsuario.class);
         Mockito.when(repositorioReserva.existe(Mockito.anyString())).thenReturn(false);
