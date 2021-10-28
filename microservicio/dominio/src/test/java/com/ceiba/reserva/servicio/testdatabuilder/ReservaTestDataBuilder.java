@@ -24,7 +24,7 @@ public class ReservaTestDataBuilder {
         fechaReserva = LocalDate.of(2021,10,30);
         horaReserva = LocalTime.of(1,33);
         no_puesto = 5;
-        id_usuario = 1l;
+        id_usuario = 1L;
     }
 
     public ReservaTestDataBuilder conCodigo(String codigo){
