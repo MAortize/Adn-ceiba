@@ -2,12 +2,15 @@ package com.ceiba.reserva.modelo.entidad;
 
 
 
+import lombok.Getter;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 import static com.ceiba.dominio.ValidadorArgumento.validarMenor;
 import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 
+@Getter
 public class Reserva {
 
     private static final String SE_DEBE_INGRESAR_LA_FECHA_CREACION_DE_LA_RESERVA = "Se debe ingresar la fecha en al cual se creo la reserva";
@@ -35,41 +38,7 @@ public class Reserva {
     private Integer noPuesto;
     private Long idUsuario;
 
-    public Long getIdReserva() {
-        return idReserva;
-    }
 
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public String getPelicula() {
-        return pelicula;
-    }
-
-    public LocalDate getFechaCreacion() {
-        return fechaCreacion;
-    }
-
-    public LocalTime getHoraCreacion() {
-        return horaCreacion;
-    }
-
-    public LocalDate getFechaReserva() {
-        return fechaReserva;
-    }
-
-    public LocalTime getHoraReserva() {
-        return horaReserva;
-    }
-
-    public Integer getNoPuesto() {
-        return noPuesto;
-    }
-
-    public Long getIdUsuario() {
-        return idUsuario;
-    }
 
     public Reserva(Long id, String codigo, String pelicula, LocalDate fechaCreacion, LocalTime horaCreacion, LocalDate fechaReserva, LocalTime horaReserva, Integer noPuest, Long idCliente) {
 
