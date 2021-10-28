@@ -1,1 +1,1 @@
-insert into usuarios (nombre, correo, tipo_carro, placa) values (:nombre, :correo, :tipo_carro, :placa)
+insert into usuarios (nombre, correo, tipo_carro, placa) values (:nombre, :correo, :tipoCarro, :placa)
