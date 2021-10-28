@@ -27,10 +27,10 @@ public class UsuarioTest {
         //arrange-act
         Usuario usuario = new UsuarioTestDataBuilder().conId(1L).build();
         //assert
-        assertEquals(1, usuario.getId_usuario());
+        assertEquals(1, usuario.getIdUsuario());
         assertEquals("1234", usuario.getNombre());
         assertEquals("1234", usuario.getCorreo());
-        assertEquals("Automovil", usuario.getTipo_carro());
+        assertEquals("Automovil", usuario.getTipoCarro());
         assertEquals("ABCD", usuario.getPlaca());
     }
 
