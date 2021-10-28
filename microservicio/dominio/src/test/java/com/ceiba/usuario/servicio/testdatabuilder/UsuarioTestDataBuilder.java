@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 public class UsuarioTestDataBuilder {
 
-    private Long id_usuario;
+    private Long idUsuario;
     private String nombreUsuario;
     private String correo;
     private String tipoCarro;
@@ -21,7 +21,7 @@ public class UsuarioTestDataBuilder {
 
     }
     public UsuarioTestDataBuilder conId(Long id) {
-        this.id_usuario = id;
+        this.idUsuario = id;
         return this;
     }
 
@@ -46,6 +46,6 @@ public class UsuarioTestDataBuilder {
     }
 
     public Usuario build() {
-        return new Usuario(id_usuario,nombreUsuario,correo,tipoCarro,placa);
+        return new Usuario(idUsuario,nombreUsuario,correo,tipoCarro,placa);
     }
 }

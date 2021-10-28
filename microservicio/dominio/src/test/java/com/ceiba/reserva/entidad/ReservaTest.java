@@ -35,12 +35,12 @@ public class ReservaTest {
         LocalDate fechaReserva = LocalDate.of(2021,10,30);
         LocalTime horaReserva = LocalTime.of(1, 33);
         //act
-        Reserva reserva = new ReservaTestDataBuilder().conIdUsuario(1L).conIdReserva(1L).build();
+        Reserva reserva = new ReservaTestDataBuilder().conIdUsuario(2L).conIdReserva(1L).build();
         //Assert
         assertEquals(1, reserva.getIdReserva());
         assertEquals("12", reserva.getCodigo());
         assertEquals("Avengers", reserva.getPelicula());
-        assertEquals(1, reserva.getIdUsuario());
+        assertEquals(2, reserva.getIdUsuario());
         assertEquals(5, reserva.getNoPuesto());
         assertEquals(fechaReserva, reserva.getFechaReserva());
         assertEquals(horaReserva, reserva.getHoraReserva());

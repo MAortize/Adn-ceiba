@@ -39,7 +39,7 @@ public class RepositorioUsuarioMysql implements RepositorioUsuario {
     @Override
     public void eliminar(Long id) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
-        paramSource.addValue("id_usuario", id);
+        paramSource.addValue("idUsuario", id);
 
         this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, paramSource);
     }
@@ -60,7 +60,7 @@ public class RepositorioUsuarioMysql implements RepositorioUsuario {
     @Override
     public boolean existePorId(Long id) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
-        paramSource.addValue("id_usuario", id);
+        paramSource.addValue("idUsuario", id);
 
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExistePorId,paramSource, Boolean.class);
     }

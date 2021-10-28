@@ -21,9 +21,6 @@ public class Usuario {
     private static final String CAMIONETA = "Camioneta";
 
 
-
-
-
     private Long idUsuario;
     private String nombre;
     private String correo;

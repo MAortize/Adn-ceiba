@@ -1,2 +1,2 @@
-select id,nombre,correo,tipoCarro,placa
+select id,nombre,correo,tipo_carro,placa
 from usuarios

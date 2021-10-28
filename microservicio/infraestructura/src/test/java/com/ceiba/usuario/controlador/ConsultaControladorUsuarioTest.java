@@ -37,7 +37,7 @@ class ConsultaControladorUsuarioTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(2)))
                 .andExpect(jsonPath("$[0].nombre", is("test")))
-                .andExpect(jsonPath("$[0].id_usuario", is(1)));
+                .andExpect(jsonPath("$[0].idUsuario", is(1)));
 
     }
 

@@ -35,13 +35,13 @@ public class ComandoControladorUsuario {
         return manejadorCrearUsuario.ejecutar(comandoUsuario);
     }
 
-    @DeleteMapping(value="/{id_usuario}")
+    @DeleteMapping(value="/{idUsuario}")
 	@ApiOperation("Eliminar Usuario")
 	public void eliminar(@PathVariable(name = "idUsuario") Long id) {
 		manejadorEliminarUsuario.ejecutar(id);
 	}
 
-	@PutMapping(value="/{id_usuario}")
+	@PutMapping(value="/{idUsuario}")
 	@ApiOperation("Actualizar Usuario")
 	public void actualizar(@RequestBody ComandoUsuario comandoUsuario,@PathVariable(name = "idUsuario") Long id) {
 		comandoUsuario.setIdUsuario(id);
