@@ -1,12 +1,7 @@
 package com.ceiba.reserva.modelo.dto;
 
-
-
 import java.time.LocalDate;
 import java.time.LocalTime;
-
-
-
 
 public class DtoReserva {
 

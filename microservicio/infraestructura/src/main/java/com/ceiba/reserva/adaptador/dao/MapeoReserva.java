@@ -1,4 +1,4 @@
-package com.ceiba.reserva.adaptador;
+package com.ceiba.reserva.adaptador.dao;
 
 import com.ceiba.infraestructura.jdbc.MapperResult;
 import com.ceiba.reserva.modelo.dto.DtoReserva;
