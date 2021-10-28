@@ -15,6 +15,8 @@ public class Reserva {
     private static final String SE_DEBE_INGRESAR_EL_CODIGO_DE_LA_RESERVA = "Se debe ingresar el codigo de reserva";
     private static final String SE_DEBE_INGRESAR_EL_NOMBRE_DE_LA_PELICULA = "Se debe ingresar el nombre de la pelicula";
     private static final String SE_DEBE_INGRESAR_EL_NUMERO_DE_PUESTO = "Debe ingresar el puesto en el que desea estar ubicado";
+    private static final String SE_DEBE_INGRESAR_LA_HORA_EN_LA_QUE_SE_CREO_LA_RESERVA = "Se debe ingresar la hora de creacion de la reserva";
+    private static final String SE_DEBE_INGRESAR_LA_HORA_DE_LA_RESERVA = "Se debe ingresar la hora de la reserva";
     private static final String EL_TIEMPO_DE_RESERVA_FINALIZO = "El horario disponible para hacer la reserva ya termino";
     private static final String EL_TIEMPO_PARA_RESERVAR_NO_HA_INICIADO = "Todavia no esta disponible el horario para hacer una reserva";
 
@@ -78,6 +80,8 @@ public class Reserva {
         validarObligatorio(codigo, SE_DEBE_INGRESAR_EL_CODIGO_DE_LA_RESERVA);
         validarObligatorio(pelicula, SE_DEBE_INGRESAR_EL_NOMBRE_DE_LA_PELICULA);
         validarObligatorio(noPuest, SE_DEBE_INGRESAR_EL_NUMERO_DE_PUESTO);
+        validarObligatorio(horaCreacion, SE_DEBE_INGRESAR_LA_HORA_EN_LA_QUE_SE_CREO_LA_RESERVA);
+        validarObligatorio(horaReserva, SE_DEBE_INGRESAR_LA_HORA_DE_LA_RESERVA);
         validarMenor(INICIO_HORARIO_DE_ATENCION,horaCreacion.getHour(), EL_TIEMPO_PARA_RESERVAR_NO_HA_INICIADO);
         validarMenor(horaCreacion.getHour(),FIN_HORARIO_DE_ATENCION, EL_TIEMPO_DE_RESERVA_FINALIZO);
         this.idReserva = id;

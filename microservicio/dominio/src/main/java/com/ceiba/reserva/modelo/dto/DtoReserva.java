@@ -1,8 +1,13 @@
 package com.ceiba.reserva.modelo.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+@Getter
+@AllArgsConstructor
 public class DtoReserva {
 
     private Long idReservaDto;
@@ -15,52 +20,5 @@ public class DtoReserva {
     private Integer noPuestoDto;
     private Long idUsuarioReservaDto;
 
-    public Long getIdReservaDto() {
-        return idReservaDto;
-    }
 
-    public String getCodigoDto() {
-        return codigoDto;
-    }
-
-    public String getPeliculaDto() {
-        return peliculaDto;
-    }
-
-    public LocalDate getFechaCreacionDto() {
-        return fechaCreacionDto;
-    }
-
-    public LocalTime getHoraCreacionDto() {
-        return horaCreacionDto;
-    }
-
-    public LocalDate getFechaReservaDto() {
-        return fechaReservaDto;
-    }
-
-    public LocalTime getHoraReservaDto() {
-        return horaReservaDto;
-    }
-
-    public Integer getNoPuestoDto() {
-        return noPuestoDto;
-    }
-
-    public Long getIdUsuarioReservaDto() {
-        return idUsuarioReservaDto;
-    }
-
-    public DtoReserva(Long idReservaDto, String codigoDto, String peliculaDto, LocalDate fechaCreacionDto, LocalTime horaCreacionDto, LocalDate fechaReservaDto,
-                      LocalTime horaReservaDto, Integer noPuestoDto, Long idUsuarioReservaDto) {
-        this.idReservaDto = idReservaDto;
-        this.codigoDto = codigoDto;
-        this.peliculaDto = peliculaDto;
-        this.fechaCreacionDto = fechaCreacionDto;
-        this.horaCreacionDto = horaCreacionDto;
-        this.fechaReservaDto = fechaReservaDto;
-        this.horaReservaDto = horaReservaDto;
-        this.noPuestoDto = noPuestoDto;
-        this.idUsuarioReservaDto = idUsuarioReservaDto;
-    }
 }

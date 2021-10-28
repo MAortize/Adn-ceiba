@@ -23,6 +23,8 @@ public class ReservaTest {
     private static final String SE_DEBE_INGRESAR_EL_CODIGO_DE_LA_RESERVA = "Se debe ingresar el codigo de reserva";
     private static final String SE_DEBE_INGRESAR_EL_NOMBRE_DE_LA_PELICULA = "Se debe ingresar el nombre de la pelicula";
     private static final String SE_DEBE_INGRESAR_EL_NUMERO_DE_PUESTO = "Debe ingresar el puesto en el que desea estar ubicado";
+    private static final String SE_DEBE_INGRESAR_LA_HORA_EN_LA_QUE_SE_CREO_LA_RESERVA = "Se debe ingresar la hora de creacion de la reserva";
+    private static final String SE_DEBE_INGRESAR_LA_HORA_DE_LA_RESERVA = "Se debe ingresar la hora de la reserva";
     private static final String EL_TIEMPO_DE_RESERVA_FINALIZO = "El horario disponible para hacer la reserva ya termino";
     private static final String EL_TIEMPO_PARA_RESERVAR_NO_HA_INICIADO = "Todavia no esta disponible el horario para hacer una reserva";
 
@@ -113,6 +115,24 @@ public class ReservaTest {
             reservaTestDataBuilder.build();
         },
                 ExcepcionValorObligatorio.class, SE_DEBE_INGRESAR_LA_FECHA_DE_RESERVA);
+    }
+
+    @Test
+    void deberiaFallarSinHoraCreacion(){
+        ReservaTestDataBuilder reservaTestDataBuilder = new ReservaTestDataBuilder().conHoraCreacion(null);
+        BasePrueba.assertThrows(() -> {
+            reservaTestDataBuilder.build();
+        },
+                ExcepcionValorObligatorio.class, SE_DEBE_INGRESAR_LA_HORA_EN_LA_QUE_SE_CREO_LA_RESERVA);
+    }
+
+    @Test
+    void deberiaFallarSinHoraReserva(){
+        ReservaTestDataBuilder reservaTestDataBuilder = new ReservaTestDataBuilder().conHoraReserva(null);
+        BasePrueba.assertThrows(() -> {
+            reservaTestDataBuilder.build();
+        },
+                ExcepcionValorObligatorio.class, SE_DEBE_INGRESAR_LA_HORA_DE_LA_RESERVA);
     }
 
 
