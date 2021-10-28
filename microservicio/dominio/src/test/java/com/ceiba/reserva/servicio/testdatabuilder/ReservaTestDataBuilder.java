@@ -19,6 +19,8 @@ public class ReservaTestDataBuilder {
     public ReservaTestDataBuilder() {
         codigo = "12";
         pelicula = "Avengers";
+        fechaCreacion = LocalDate.now();
+        horaCreacion = LocalTime.now();
         fechaReserva = LocalDate.of(2021,10,30);
         horaReserva = LocalTime.of(1,33);
         no_puesto = 5;

@@ -1,5 +1,7 @@
 package com.ceiba.reserva.servicio;
 
+import com.ceiba.BasePrueba;
+import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
 import com.ceiba.reserva.modelo.entidad.Reserva;
 import com.ceiba.reserva.puerto.repositorio.RepositorioReserva;
 import com.ceiba.reserva.servicio.testdatabuilder.ReservaTestDataBuilder;
@@ -14,6 +16,23 @@ import java.time.LocalTime;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ServicioCrearReservaTest {
+
+
+    @Test
+    @DisplayName("Deberia lanzar una excepcion cuando se valide la existencia de la reserva")
+    void deberiaLanzarUnaExcepcionCuandoSeValideLaExistenciaDeLaReserva(){
+        Reserva reserva = new ReservaTestDataBuilder().build();
+        RepositorioReserva repositorioReserva = Mockito.mock(RepositorioReserva.class);
+        RepositorioUsuario repositorioUsuario = Mockito.mock(RepositorioUsuario.class);
+        Mockito.when(repositorioReserva.existe(Mockito.anyString())).thenReturn(true);
+        Mockito.when(repositorioUsuario.existePorId(Mockito.anyLong())).thenReturn(true);
+        ServicioCrearReserva servicioCrearReserva = new ServicioCrearReserva(repositorioReserva, repositorioUsuario);
+
+        BasePrueba.assertThrows(() -> servicioCrearReserva.ejecutar(reserva), ExcepcionDuplicidad.class, "La reserva ya existe en el sistema");
+
+    }
+
+
 
     @Test
     @DisplayName("Deberia Crear la reserva de manera correcta")
