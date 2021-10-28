@@ -21,7 +21,7 @@ public class ComandoReservaTestDataBuilder {
         codigo="12346";
         pelicula="xd";
         fechaCreacion = LocalDate.now();
-        horaCreacion = LocalTime.now();
+        horaCreacion = LocalTime.of(16,00);
         fechaReserva = LocalDate.of(2021,10,28);
         horaReserva = LocalTime.of(9,37);
         noPuesto = 4;
