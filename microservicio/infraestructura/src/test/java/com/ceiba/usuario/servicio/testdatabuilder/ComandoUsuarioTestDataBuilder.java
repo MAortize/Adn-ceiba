@@ -7,17 +7,17 @@ import java.util.UUID;
 
 public class ComandoUsuarioTestDataBuilder {
 
-    private Long id_usuario;
+    private Long idUsuario;
     private String nombre;
     private String correo;
-    private String tipo_carro;
+    private String tipoCarro;
     private String placa;
 
 
     public ComandoUsuarioTestDataBuilder() {
         nombre = UUID.randomUUID().toString();
         correo = "1234";
-        tipo_carro = "Automovil";
+        tipoCarro = "Automovil";
         placa = "ABCD";
 
     }
@@ -28,6 +28,6 @@ public class ComandoUsuarioTestDataBuilder {
     }
 
     public ComandoUsuario build() {
-        return new ComandoUsuario(id_usuario,nombre, correo, tipo_carro, placa);
+        return new ComandoUsuario(idUsuario,nombre, correo, tipoCarro, placa);
     }
 }
