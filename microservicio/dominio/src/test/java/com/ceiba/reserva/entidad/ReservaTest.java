@@ -29,7 +29,7 @@ public class ReservaTest {
 
         //arrange
         LocalDate fechaCreacion = LocalDate.now();
-        LocalTime horaCreacion = LocalTime.now().minusHours(12);
+        LocalTime horaCreacion = LocalTime.now();
         //act
         Reserva reserva = new ReservaTestDataBuilder().conFechaCreacion(fechaCreacion).conHoraCreacion(horaCreacion)
                 .conIdUsuario(1L).conIdReserva(1L).build();
@@ -46,7 +46,7 @@ public class ReservaTest {
     @Test
     void deberiaFallarSinNombrePelicula() {
         LocalDate fechaCreacion = LocalDate.now();
-        LocalTime horaCreacion = LocalTime.now().minusHours(12);
+        LocalTime horaCreacion = LocalTime.now();
         ReservaTestDataBuilder reservaTestDataBuilder = new ReservaTestDataBuilder().conPelicula(null).conIdReserva(1L)
                 .conFechaCreacion(fechaCreacion).conHoraCreacion(horaCreacion);
         BasePrueba.assertThrows(() -> {
@@ -58,7 +58,7 @@ public class ReservaTest {
     @Test
     void deberiaFallarSinCodigo() {
         LocalDate fechaCreacion = LocalDate.now();
-        LocalTime horaCreacion = LocalTime.now().minusHours(12);
+        LocalTime horaCreacion = LocalTime.now();
         ReservaTestDataBuilder reservaTestDataBuilder = new ReservaTestDataBuilder().conCodigo(null).conIdReserva(1L)
                 .conFechaCreacion(fechaCreacion).conHoraCreacion(horaCreacion);
         BasePrueba.assertThrows(() -> {
@@ -69,7 +69,7 @@ public class ReservaTest {
 
     @Test
     void deberiaFallarSinFechaCreacion() {
-        LocalTime horaCreacion = LocalTime.now().minusHours(12);
+        LocalTime horaCreacion = LocalTime.now();
         ReservaTestDataBuilder reservaTestDataBuilder = new ReservaTestDataBuilder().conFechaCreacion(null)
                 .conHoraCreacion(horaCreacion).conIdReserva(1L);
         BasePrueba.assertThrows(() -> {
@@ -81,7 +81,7 @@ public class ReservaTest {
     @Test
     void deberiaFallarSinNoPuesto(){
         LocalDate fechaCreacion = LocalDate.now();
-        LocalTime horaCreacion = LocalTime.now().minusHours(12);
+        LocalTime horaCreacion = LocalTime.now();
         ReservaTestDataBuilder reservaTestDataBuilder = new ReservaTestDataBuilder().conNoPuesto(null)
                 .conFechaCreacion(fechaCreacion)
                 .conHoraCreacion(horaCreacion).conIdReserva(1L);

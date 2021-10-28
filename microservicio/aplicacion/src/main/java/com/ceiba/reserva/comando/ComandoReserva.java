@@ -22,6 +22,6 @@ public class ComandoReserva {
     private LocalDate fechaReserva;
     private LocalTime horaReserva;
     private Integer noPuesto;
-    private Long idUsuario;
+    private Long idUsuarioReserva;
 
 }
