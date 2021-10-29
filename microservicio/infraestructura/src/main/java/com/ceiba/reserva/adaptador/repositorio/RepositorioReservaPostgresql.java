@@ -45,7 +45,7 @@ public class RepositorioReservaPostgresql implements RepositorioReserva {
     @Override
     public void eliminar(Long id) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
-        paramSource.addValue("id", id);
+        paramSource.addValue("idReserva", id);
 
         this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, paramSource);
     }

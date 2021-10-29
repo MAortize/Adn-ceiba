@@ -2,6 +2,9 @@ package com.ceiba.reserva.modelo.entidad;
 
 
 
+import com.ceiba.usuario.modelo.entidad.Usuario;
+
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -21,6 +24,11 @@ public class Reserva {
     private static final String EL_TIEMPO_PARA_RESERVAR_NO_HA_INICIADO = "Todavia no esta disponible el horario para hacer una reserva";
 
 
+    private static final Double TARIFA_AUTOMOVILES = 40.000;
+    private static final Double TARIFA_CAMIONETA = 60.000;
+
+    private static final String AUTOMOVIL = "Automovil";
+    private static final String CAMIONETA = "Camioneta";
 
 
     private static final Integer INICIO_HORARIO_DE_ATENCION = 8;
@@ -37,6 +45,7 @@ public class Reserva {
     private LocalTime horaReserva;
     private Integer noPuesto;
     private Long idUsuario;
+    private Double tarifa;
 
 
     public Long getIdReserva() {
@@ -91,6 +100,7 @@ public class Reserva {
         validarMenor(INICIO_HORARIO_DE_ATENCION,horaCreacion.getHour(), EL_TIEMPO_PARA_RESERVAR_NO_HA_INICIADO);
         validarMenor(horaCreacion.getHour(),FIN_HORARIO_DE_ATENCION, EL_TIEMPO_DE_RESERVA_FINALIZO);
 
+
         this.idReserva = id;
         this.codigo = codigo;
         this.pelicula = pelicula;
@@ -101,6 +111,19 @@ public class Reserva {
         this.noPuesto = noPuest;
         this.idUsuario = idCliente;
 
+
+    }
+
+    private Double calcularTarifa(String tipoCarro){
+        Double tarifa=0.0;
+
+        if (tipoCarro==AUTOMOVIL){
+            tarifa = TARIFA_AUTOMOVILES;
+        }
+        if (tipoCarro==CAMIONETA){
+            tarifa = TARIFA_CAMIONETA;
+        }
+        return tarifa;
     }
 
 

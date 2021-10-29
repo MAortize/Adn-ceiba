@@ -1,6 +1,7 @@
 package com.ceiba.reserva.servicio.testdatabuilder;
 
 import com.ceiba.reserva.modelo.entidad.Reserva;
+import com.ceiba.usuario.modelo.entidad.Usuario;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -17,6 +18,7 @@ public class ReservaTestDataBuilder {
     private Long id_usuario;
 
 
+
     public ReservaTestDataBuilder() {
         codigo = "12";
         pelicula = "Avengers";
@@ -28,6 +30,8 @@ public class ReservaTestDataBuilder {
         id_usuario = 1L;
 
     }
+
+
 
     public ReservaTestDataBuilder conCodigo(String codigo){
             this.codigo = codigo;

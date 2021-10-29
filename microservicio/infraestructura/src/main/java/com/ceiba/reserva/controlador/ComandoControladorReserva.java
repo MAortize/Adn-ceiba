@@ -16,18 +16,24 @@ import org.springframework.web.bind.annotation.*;
 public class ComandoControladorReserva {
 
     private final ManejadorCrearReserva manejadorCrearReserva;
-
+    private final ManejadorEliminarReserva manejadorEliminarReserva;
 
     @Autowired
-    public ComandoControladorReserva(ManejadorCrearReserva manejadorCrearReserva) {
+    public ComandoControladorReserva(ManejadorCrearReserva manejadorCrearReserva, ManejadorEliminarReserva manejadorEliminarReserva) {
         this.manejadorCrearReserva = manejadorCrearReserva;
-
+        this.manejadorEliminarReserva = manejadorEliminarReserva;
     }
 
     @PostMapping
     @ApiOperation("crear reserva")
     public ComandoRespuesta<Long> crear(@RequestBody ComandoReserva comandoReserva){
         return  manejadorCrearReserva.ejecutar(comandoReserva);
+    }
+
+    @DeleteMapping(value="/{idReserva}")
+    @ApiOperation("Eliminar Usuario")
+    public void eliminar(@PathVariable(name = "idReserva") Long id) {
+        manejadorEliminarReserva.ejecutar(id);
     }
 
 
