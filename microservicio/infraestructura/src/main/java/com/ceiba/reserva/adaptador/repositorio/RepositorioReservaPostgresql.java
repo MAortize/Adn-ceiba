@@ -39,8 +39,9 @@ public class RepositorioReservaPostgresql implements RepositorioReserva {
 
     @Override
     public void actualizar(Reserva reserva) {
-
+        this.customNamedParameterJdbcTemplate.actualizar(reserva, sqlActualizar);
     }
+
 
     @Override
     public void eliminar(Long id) {
