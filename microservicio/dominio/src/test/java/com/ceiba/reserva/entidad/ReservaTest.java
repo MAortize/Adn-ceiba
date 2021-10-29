@@ -5,7 +5,6 @@ import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
 import com.ceiba.dominio.excepcion.ExcepcionValorObligatorio;
 import com.ceiba.reserva.modelo.entidad.Reserva;
 import com.ceiba.reserva.servicio.testdatabuilder.ReservaTestDataBuilder;
-import com.ceiba.usuario.servicio.testdatabuilder.UsuarioTestDataBuilder;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -14,7 +13,6 @@ import java.time.*;
 import java.time.temporal.TemporalAdjusters;
 
 
-import static java.time.Month.OCTOBER;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ReservaTest {
