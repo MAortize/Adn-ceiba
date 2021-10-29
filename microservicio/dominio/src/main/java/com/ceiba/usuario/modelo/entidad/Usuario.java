@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import static com.ceiba.dominio.ValidadorArgumento.validarLongitud;
 import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 
-@Getter
+
 public class Usuario {
 
 
@@ -26,7 +26,27 @@ public class Usuario {
     private String tipoCarro;
     private String placa;
 
-    public Usuario(Long id,String nombre, String correo, String tipoCarro, String placa) {
+    public Long getIdUsuario() {
+        return idUsuario;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public String getTipoCarro() {
+        return tipoCarro;
+    }
+
+    public String getPlaca() {
+        return placa;
+    }
+
+    public Usuario(Long id, String nombre, String correo, String tipoCarro, String placa) {
         validarObligatorio(nombre, SE_DEBE_INGRESAR_EL_NOMBRE_DE_USUARIO);
         validarObligatorio(correo, SE_DEBE_INGRESAR_LA_CLAVE);
         validarObligatorio(tipoCarro, SE_DEBE_INGRESAR_EL_TIPO_DE_CARRO);
