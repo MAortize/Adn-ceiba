@@ -28,6 +28,6 @@ public class MapeoReserva implements RowMapper<DtoReserva>, MapperResult {
 
 
         return new DtoReserva(idReserva, codigo, pelicula, fechaCreacion, horaCreacion, fechaReserva, horaReserva,
-                noPuesto, idUsuarioFk);
+                noPuesto, tarifa, idUsuarioFk);
     }
 }
