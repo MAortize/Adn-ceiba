@@ -10,10 +10,11 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 
-import java.time.LocalTime;
-import java.time.LocalDate;
+import java.time.*;
+import java.time.temporal.TemporalAdjusters;
 
 
+import static java.time.Month.OCTOBER;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ReservaTest {
@@ -27,6 +28,7 @@ public class ReservaTest {
     private static final String SE_DEBE_INGRESAR_LA_HORA_DE_LA_RESERVA = "Se debe ingresar la hora de la reserva";
     private static final String EL_TIEMPO_DE_RESERVA_FINALIZO = "El horario disponible para hacer la reserva ya termino";
     private static final String EL_TIEMPO_PARA_RESERVAR_NO_HA_INICIADO = "Todavia no esta disponible el horario para hacer una reserva";
+    private static final String NO_ACEPTAMOS_RESERVAS_LOS_FINES_DE_SEMANA = "Los fines de semana no permitimos hacer reservas";
 
 
     @Test
@@ -133,6 +135,30 @@ public class ReservaTest {
             reservaTestDataBuilder.build();
         },
                 ExcepcionValorObligatorio.class, SE_DEBE_INGRESAR_LA_HORA_DE_LA_RESERVA);
+    }
+
+    @Test
+    void deberiaFallarSiHaceLaReservaEnSabado(){
+        ReservaTestDataBuilder reservaTestDataBuilder = new ReservaTestDataBuilder().conFechaCreacion(calcNextDay(DayOfWeek.SATURDAY));
+        BasePrueba.assertThrows(() -> {
+            reservaTestDataBuilder.build();
+                },
+                ExcepcionValorInvalido.class, NO_ACEPTAMOS_RESERVAS_LOS_FINES_DE_SEMANA);
+    }
+
+    @Test
+    void deberiaFallarSiHaceLaReservaENDomingo(){
+        ReservaTestDataBuilder reservaTestDataBuilder = new ReservaTestDataBuilder().conFechaCreacion(calcNextDay(DayOfWeek.SUNDAY));
+        BasePrueba.assertThrows(() -> {
+                    reservaTestDataBuilder.build();
+                },
+                ExcepcionValorInvalido.class, NO_ACEPTAMOS_RESERVAS_LOS_FINES_DE_SEMANA);
+    }
+
+
+
+    private LocalDate calcNextDay(DayOfWeek day) {
+        return LocalDate.now().with(TemporalAdjusters.next(day));
     }
 
 

@@ -24,4 +24,5 @@ public class ComandoReserva {
     private Integer noPuesto;
     private Long idUsuarioReserva;
 
+
 }

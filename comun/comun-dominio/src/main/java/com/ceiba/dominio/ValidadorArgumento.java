@@ -1,9 +1,9 @@
 package com.ceiba.dominio;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -61,6 +61,15 @@ public class ValidadorArgumento {
         if (numeroInicial > numeroFinal) {
             throw new ExcepcionValorInvalido(mensaje);
         }
+    }
+
+    public static void validarDia(LocalDate diasProhibidos, String mensaje){
+        DayOfWeek dias = diasProhibidos.getDayOfWeek();
+        Set<DayOfWeek> weekend = EnumSet.of( DayOfWeek.SATURDAY , DayOfWeek.SUNDAY );
+        if (weekend.contains(dias)){
+            throw  new ExcepcionValorInvalido(mensaje);
+        }
+
     }
 
     public static void validarMenor(Integer numeroInicial, Integer numeroFinal, String mensaje) {

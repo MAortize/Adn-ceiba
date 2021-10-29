@@ -18,6 +18,7 @@ public class FabricaReserva {
                 comandoReserva.getHoraReserva(),
                 comandoReserva.getNoPuesto(),
                 comandoReserva.getIdUsuarioReserva()
+
         );
     }
 

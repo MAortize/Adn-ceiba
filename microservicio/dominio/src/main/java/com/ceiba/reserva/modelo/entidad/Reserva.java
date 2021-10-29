@@ -5,8 +5,7 @@ package com.ceiba.reserva.modelo.entidad;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-import static com.ceiba.dominio.ValidadorArgumento.validarMenor;
-import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
+import static com.ceiba.dominio.ValidadorArgumento.*;
 
 public class Reserva {
 
@@ -17,8 +16,10 @@ public class Reserva {
     private static final String SE_DEBE_INGRESAR_EL_NUMERO_DE_PUESTO = "Debe ingresar el puesto en el que desea estar ubicado";
     private static final String SE_DEBE_INGRESAR_LA_HORA_EN_LA_QUE_SE_CREO_LA_RESERVA = "Se debe ingresar la hora de creacion de la reserva";
     private static final String SE_DEBE_INGRESAR_LA_HORA_DE_LA_RESERVA = "Se debe ingresar la hora de la reserva";
+    private static final String NO_ACEPTAMOS_RESERVAS_LOS_FINES_DE_SEMANA = "Los fines de semana no permitimos hacer reservas";
     private static final String EL_TIEMPO_DE_RESERVA_FINALIZO = "El horario disponible para hacer la reserva ya termino";
     private static final String EL_TIEMPO_PARA_RESERVAR_NO_HA_INICIADO = "Todavia no esta disponible el horario para hacer una reserva";
+
 
 
 
@@ -36,6 +37,7 @@ public class Reserva {
     private LocalTime horaReserva;
     private Integer noPuesto;
     private Long idUsuario;
+
 
     public Long getIdReserva() {
         return idReserva;
@@ -73,7 +75,10 @@ public class Reserva {
         return idUsuario;
     }
 
-    public Reserva(Long id, String codigo, String pelicula, LocalDate fechaCreacion, LocalTime horaCreacion, LocalDate fechaReserva, LocalTime horaReserva, Integer noPuest, Long idCliente) {
+
+
+    public Reserva(Long id, String codigo, String pelicula, LocalDate fechaCreacion, LocalTime horaCreacion, LocalDate fechaReserva, LocalTime horaReserva, Integer noPuest,
+                   Long idCliente) {
 
         validarObligatorio(fechaCreacion, SE_DEBE_INGRESAR_LA_FECHA_CREACION_DE_LA_RESERVA);
         validarObligatorio(fechaReserva, SE_DEBE_INGRESAR_LA_FECHA_DE_RESERVA);
@@ -82,8 +87,10 @@ public class Reserva {
         validarObligatorio(noPuest, SE_DEBE_INGRESAR_EL_NUMERO_DE_PUESTO);
         validarObligatorio(horaCreacion, SE_DEBE_INGRESAR_LA_HORA_EN_LA_QUE_SE_CREO_LA_RESERVA);
         validarObligatorio(horaReserva, SE_DEBE_INGRESAR_LA_HORA_DE_LA_RESERVA);
+        validarDia(fechaCreacion, NO_ACEPTAMOS_RESERVAS_LOS_FINES_DE_SEMANA);
         validarMenor(INICIO_HORARIO_DE_ATENCION,horaCreacion.getHour(), EL_TIEMPO_PARA_RESERVAR_NO_HA_INICIADO);
         validarMenor(horaCreacion.getHour(),FIN_HORARIO_DE_ATENCION, EL_TIEMPO_DE_RESERVA_FINALIZO);
+
         this.idReserva = id;
         this.codigo = codigo;
         this.pelicula = pelicula;
@@ -93,5 +100,9 @@ public class Reserva {
         this.horaReserva = horaReserva;
         this.noPuesto = noPuest;
         this.idUsuario = idCliente;
+
     }
+
+
+
 }

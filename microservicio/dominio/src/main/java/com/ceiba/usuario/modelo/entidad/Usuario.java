@@ -17,8 +17,7 @@ public class Usuario {
     private static final String SE_DEBE_INGRESAR_EL_TIPO_DE_CARRO = "Se debe ingresar el tipo de carro";
     private static final String SE_DEBE_INGRESAR_LA_PLACA_DEL_CARRO = "Se debe ingresar la placa del carro";
 
-    private static final String AUTOMOVIL = "Automovil";
-    private static final String CAMIONETA = "Camioneta";
+
 
 
     private Long idUsuario;

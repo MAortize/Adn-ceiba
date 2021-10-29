@@ -16,6 +16,7 @@ public class ReservaTestDataBuilder {
     private Integer no_puesto;
     private Long id_usuario;
 
+
     public ReservaTestDataBuilder() {
         codigo = "12";
         pelicula = "Avengers";
@@ -25,6 +26,7 @@ public class ReservaTestDataBuilder {
         horaReserva = LocalTime.of(1,33);
         no_puesto = 5;
         id_usuario = 1L;
+
     }
 
     public ReservaTestDataBuilder conCodigo(String codigo){
