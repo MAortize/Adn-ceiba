@@ -48,6 +48,7 @@ public class ReservaTest {
         assertEquals(5, reserva.getNoPuesto());
         assertEquals(fechaReserva, reserva.getFechaReserva());
         assertEquals(horaReserva, reserva.getHoraReserva());
+        assertEquals(40.000,reserva.getTarifa());
     }
 
     @Test

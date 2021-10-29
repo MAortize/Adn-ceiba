@@ -16,6 +16,7 @@ create table reservas (
  fecha_reserva date not null,
  hora_reserva time not null,
  no_puesto numeric not null,
+ tarifa Double precision not null,
  id_usuario_fk integer,
  primary key (id),
  constraint fk_usuario

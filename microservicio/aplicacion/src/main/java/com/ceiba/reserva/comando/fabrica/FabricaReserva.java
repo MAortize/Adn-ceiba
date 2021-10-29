@@ -18,6 +18,7 @@ public class FabricaReserva {
                 comandoReserva.getFechaReserva(),
                 comandoReserva.getHoraReserva(),
                 comandoReserva.getNoPuesto(),
+                comandoReserva.getTipoCarro(),
                 comandoReserva.getIdUsuarioReserva()
 
 

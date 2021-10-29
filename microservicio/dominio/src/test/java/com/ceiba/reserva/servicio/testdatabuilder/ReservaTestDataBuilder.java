@@ -15,6 +15,7 @@ public class ReservaTestDataBuilder {
     private LocalDate fechaReserva;
     private LocalTime horaReserva;
     private Integer no_puesto;
+    private String tipoCarro;
     private Long id_usuario;
 
 
@@ -27,10 +28,16 @@ public class ReservaTestDataBuilder {
         fechaReserva = LocalDate.of(2021,10,30);
         horaReserva = LocalTime.of(1,33);
         no_puesto = 5;
+        tipoCarro = "Automovil";
         id_usuario = 1L;
 
     }
 
+
+    public ReservaTestDataBuilder conTipoCarro(String tipoCarro){
+        this.tipoCarro = tipoCarro;
+        return this;
+    }
 
 
     public ReservaTestDataBuilder conCodigo(String codigo){
@@ -79,7 +86,7 @@ public class ReservaTestDataBuilder {
     }
 
     public Reserva build(){
-        return new Reserva(id_reserva,codigo,pelicula,fechaCreacion,horaCreacion,fechaReserva,horaReserva,no_puesto, id_usuario);
+        return new Reserva(id_reserva,codigo,pelicula,fechaCreacion,horaCreacion,fechaReserva,horaReserva,no_puesto, tipoCarro, id_usuario);
     }
 
 }

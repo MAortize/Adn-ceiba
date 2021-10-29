@@ -7,7 +7,6 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Getter
-@AllArgsConstructor
 public class DtoReserva {
 
     private Long idReservaDto;
@@ -18,7 +17,20 @@ public class DtoReserva {
     private LocalDate fechaReservaDto;
     private LocalTime horaReservaDto;
     private Integer noPuestoDto;
+    private Double tarifa;
     private Long idUsuarioReservaDto;
 
 
+    public DtoReserva(Long idReservaDto, String codigoDto, String peliculaDto, LocalDate fechaCreacionDto, LocalTime horaCreacionDto,
+                      LocalDate fechaReservaDto, LocalTime horaReservaDto, Integer noPuestoDto, Long idUsuarioReservaDto) {
+        this.idReservaDto = idReservaDto;
+        this.codigoDto = codigoDto;
+        this.peliculaDto = peliculaDto;
+        this.fechaCreacionDto = fechaCreacionDto;
+        this.horaCreacionDto = horaCreacionDto;
+        this.fechaReservaDto = fechaReservaDto;
+        this.horaReservaDto = horaReservaDto;
+        this.noPuestoDto = noPuestoDto;
+        this.idUsuarioReservaDto = idUsuarioReservaDto;
+    }
 }

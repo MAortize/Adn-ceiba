@@ -1,2 +1,2 @@
-select id,codigo,pelicula,fecha_creacion,hora_creacion,fecha_reserva,hora_reserva,no_puesto,id_usuario_fk
+select id,codigo,pelicula,fecha_creacion,hora_creacion,fecha_reserva,hora_reserva,no_puesto,tarifa,id_usuario_fk
 from reservas

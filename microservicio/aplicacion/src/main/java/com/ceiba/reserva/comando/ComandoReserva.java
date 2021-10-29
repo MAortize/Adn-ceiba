@@ -23,6 +23,7 @@ public class ComandoReserva {
     private LocalDate fechaReserva;
     private LocalTime horaReserva;
     private Integer noPuesto;
+    private String tipoCarro;
     private Long idUsuarioReserva;
 
 

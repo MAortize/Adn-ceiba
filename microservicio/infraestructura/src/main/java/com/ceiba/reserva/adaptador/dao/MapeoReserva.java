@@ -23,6 +23,7 @@ public class MapeoReserva implements RowMapper<DtoReserva>, MapperResult {
         LocalDate fechaReserva = resultSet.getDate("fecha_reserva").toLocalDate();
         LocalTime horaReserva = resultSet.getTime("hora_reserva").toLocalTime();
         Integer noPuesto = resultSet.getInt("no_puesto");
+        Double tarifa = resultSet.getDouble("tarifa");
         Long idUsuarioFk = resultSet.getLong("id_usuario_fk");
 
 

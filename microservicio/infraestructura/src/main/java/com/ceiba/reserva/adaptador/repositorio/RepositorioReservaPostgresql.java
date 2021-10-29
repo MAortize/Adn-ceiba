@@ -60,6 +60,8 @@ public class RepositorioReservaPostgresql implements RepositorioReserva {
 
     @Override
     public boolean existePorId(Long id) {
-        return false;
+        MapSqlParameterSource paramSource = new MapSqlParameterSource();
+        paramSource.addValue("idReserva", id);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExistePorId, paramSource, Boolean.class);
     }
 }

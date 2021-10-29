@@ -19,12 +19,17 @@ public class Reserva {
     private static final String SE_DEBE_INGRESAR_EL_NUMERO_DE_PUESTO = "Debe ingresar el puesto en el que desea estar ubicado";
     private static final String SE_DEBE_INGRESAR_LA_HORA_EN_LA_QUE_SE_CREO_LA_RESERVA = "Se debe ingresar la hora de creacion de la reserva";
     private static final String SE_DEBE_INGRESAR_LA_HORA_DE_LA_RESERVA = "Se debe ingresar la hora de la reserva";
+    private static final String SE_DEBE_INGRESAR_EL_TIPO_CARRO = "Se debe ingresar el tipo carro";
     private static final String NO_ACEPTAMOS_RESERVAS_LOS_FINES_DE_SEMANA = "Los fines de semana no permitimos hacer reservas";
     private static final String EL_TIEMPO_DE_RESERVA_FINALIZO = "El horario disponible para hacer la reserva ya termino";
     private static final String EL_TIEMPO_PARA_RESERVAR_NO_HA_INICIADO = "Todavia no esta disponible el horario para hacer una reserva";
 
 
+    private static final String AUTOMOVIL = "Automovil";
+    private static final String CAMIONETA = "Camioneta";
 
+    private static final Double TARIFA_AUTOMOVILES = 40.000;
+    private static final Double TARIFA_CAMIONETA = 60.000;
 
 
     private static final Integer INICIO_HORARIO_DE_ATENCION = 8;
@@ -40,6 +45,7 @@ public class Reserva {
     private LocalDate fechaReserva;
     private LocalTime horaReserva;
     private Integer noPuesto;
+    private Double tarifa;
     private Long idUsuario;
 
 
@@ -76,6 +82,10 @@ public class Reserva {
         return noPuesto;
     }
 
+    public Double getTarifa() {
+        return tarifa;
+    }
+
     public Long getIdUsuario() {
         return idUsuario;
     }
@@ -83,7 +93,7 @@ public class Reserva {
 
 
     public Reserva(Long id, String codigo, String pelicula, LocalDate fechaCreacion, LocalTime horaCreacion, LocalDate fechaReserva, LocalTime horaReserva, Integer noPuest,
-                   Long idCliente) {
+                   String tipoCarro ,Long idCliente) {
 
         validarObligatorio(fechaCreacion, SE_DEBE_INGRESAR_LA_FECHA_CREACION_DE_LA_RESERVA);
         validarObligatorio(fechaReserva, SE_DEBE_INGRESAR_LA_FECHA_DE_RESERVA);
@@ -92,6 +102,7 @@ public class Reserva {
         validarObligatorio(noPuest, SE_DEBE_INGRESAR_EL_NUMERO_DE_PUESTO);
         validarObligatorio(horaCreacion, SE_DEBE_INGRESAR_LA_HORA_EN_LA_QUE_SE_CREO_LA_RESERVA);
         validarObligatorio(horaReserva, SE_DEBE_INGRESAR_LA_HORA_DE_LA_RESERVA);
+        validarObligatorio(tipoCarro, SE_DEBE_INGRESAR_EL_TIPO_CARRO);
         validarDia(fechaCreacion, NO_ACEPTAMOS_RESERVAS_LOS_FINES_DE_SEMANA);
         validarMenor(INICIO_HORARIO_DE_ATENCION,horaCreacion.getHour(), EL_TIEMPO_PARA_RESERVAR_NO_HA_INICIADO);
         validarMenor(horaCreacion.getHour(),FIN_HORARIO_DE_ATENCION, EL_TIEMPO_DE_RESERVA_FINALIZO);
@@ -105,9 +116,24 @@ public class Reserva {
         this.fechaReserva = fechaReserva;
         this.horaReserva = horaReserva;
         this.noPuesto = noPuest;
+        this.tarifa = calcularTarifa(tipoCarro);
         this.idUsuario = idCliente;
 
 
+
+    }
+
+
+    private Double calcularTarifa(String tipoCarro){
+        Double tarifa=0.0;
+
+        if (tipoCarro.equals(AUTOMOVIL)){
+            tarifa = TARIFA_AUTOMOVILES;
+        }
+        if (tipoCarro.equals(CAMIONETA)){
+            tarifa = TARIFA_CAMIONETA;
+        }
+        return tarifa;
     }
 
 
