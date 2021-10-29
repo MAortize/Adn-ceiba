@@ -15,18 +15,18 @@ public class MapeoReserva implements RowMapper<DtoReserva>, MapperResult {
     @Override
     public DtoReserva mapRow(ResultSet resultSet, int rowNum) throws SQLException {
 
-        Long id_reserva = resultSet.getLong("id");
+        Long idReserva = resultSet.getLong("id");
         String codigo = resultSet.getString("codigo");
         String pelicula = resultSet.getString("pelicula");
-        LocalDate fecha_creacion = resultSet.getDate("fecha_creacion").toLocalDate();
-        LocalTime hora_creacion = resultSet.getTime("hora_creacion").toLocalTime();
-        LocalDate fecha_reserva = resultSet.getDate("fecha_reserva").toLocalDate();
-        LocalTime hora_reserva = resultSet.getTime("hora_reserva").toLocalTime();
-        Integer no_puesto = resultSet.getInt("no_puesto");
-        Long id_usuario_fk = resultSet.getLong("id_usuario_fk");
+        LocalDate fechaCreacion = resultSet.getDate("fecha_creacion").toLocalDate();
+        LocalTime horaCreacion = resultSet.getTime("hora_creacion").toLocalTime();
+        LocalDate fechaReserva = resultSet.getDate("fecha_reserva").toLocalDate();
+        LocalTime horaReserva = resultSet.getTime("hora_reserva").toLocalTime();
+        Integer noPuesto = resultSet.getInt("no_puesto");
+        Long idUsuarioFk = resultSet.getLong("id_usuario_fk");
 
 
-        return new DtoReserva(id_reserva, codigo, pelicula, fecha_creacion, hora_creacion, fecha_reserva, hora_reserva,
-                no_puesto, id_usuario_fk);
+        return new DtoReserva(idReserva, codigo, pelicula, fechaCreacion, horaCreacion, fechaReserva, horaReserva,
+                noPuesto, idUsuarioFk);
     }
 }
