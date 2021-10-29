@@ -1,5 +1,5 @@
 update reservas
 set pelicula = :pelicula,
-    fechaReserva = :fechaReserva,
-    horaReserva = :horaReserva
+    fecha_reserva = :fechaReserva,
+    hora_reserva = :horaReserva
 where id = :idReserva

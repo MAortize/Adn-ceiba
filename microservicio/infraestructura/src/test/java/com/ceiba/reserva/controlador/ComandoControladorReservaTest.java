@@ -48,6 +48,20 @@ public class ComandoControladorReservaTest {
     }
 
     @Test
+    @DisplayName("Deberia actualizar una reserva")
+    void deberiaActualizarReserva() throws Exception{
+
+
+        Long id = 1L;
+        ComandoReserva reserva = new ComandoReservaTestDataBuilder().conPelicula("otra").build();
+
+        mockMvc.perform(put("/reservas/{id}",id)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(reserva)))
+                .andExpect(status().isOk());
+    }
+
+    @Test
     @DisplayName("Deberia eliminar una reserva")
     void deberiaEliminarReserva() throws Exception{
         Long id = 1L;

@@ -13,19 +13,19 @@ public class RepositorioReservaPostgresql implements RepositorioReserva {
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
     @SqlStatement(namespace="reserva", value="crear")
-    private static String sqlCrear;
+    private static String sqlCrearReserva;
 
     @SqlStatement(namespace="reserva", value="actualizar")
-    private static String sqlActualizar;
+    private static String sqlActualizarReserva;
 
     @SqlStatement(namespace="reserva", value="eliminar")
-    private static String sqlEliminar;
+    private static String sqlEliminarReserva;
 
     @SqlStatement(namespace="reserva", value="existe")
-    private static String sqlExiste;
+    private static String sqlExisteReserva;
 
     @SqlStatement(namespace="reserva", value="existePorId")
-    private static String sqlExistePorId;
+    private static String sqlExistePorIdReserva;
 
     public RepositorioReservaPostgresql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
@@ -34,12 +34,12 @@ public class RepositorioReservaPostgresql implements RepositorioReserva {
 
     @Override
     public Long crear(Reserva reserva) {
-        return this.customNamedParameterJdbcTemplate.crear(reserva, sqlCrear);
+        return this.customNamedParameterJdbcTemplate.crear(reserva, sqlCrearReserva);
     }
 
     @Override
     public void actualizar(Reserva reserva) {
-        this.customNamedParameterJdbcTemplate.actualizar(reserva, sqlActualizar);
+        this.customNamedParameterJdbcTemplate.actualizar(reserva, sqlActualizarReserva);
     }
 
 
@@ -48,20 +48,20 @@ public class RepositorioReservaPostgresql implements RepositorioReserva {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("idReserva", id);
 
-        this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, paramSource);
+        this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminarReserva, paramSource);
     }
 
     @Override
     public boolean existe(String codigo) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("codigo", codigo);
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste,paramSource, Boolean.class);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteReserva,paramSource, Boolean.class);
     }
 
     @Override
     public boolean existePorId(Long id) {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("idReserva", id);
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExistePorId, paramSource, Boolean.class);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExistePorIdReserva, paramSource, Boolean.class);
     }
 }

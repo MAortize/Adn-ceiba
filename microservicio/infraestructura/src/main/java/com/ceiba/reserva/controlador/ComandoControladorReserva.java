@@ -3,6 +3,7 @@ package com.ceiba.reserva.controlador;
 
 import com.ceiba.ComandoRespuesta;
 import com.ceiba.reserva.comando.ComandoReserva;
+import com.ceiba.reserva.comando.manejador.ManejadorActualizarReserva;
 import com.ceiba.reserva.comando.manejador.ManejadorCrearReserva;
 import com.ceiba.reserva.comando.manejador.ManejadorEliminarReserva;
 import io.swagger.annotations.Api;
@@ -17,11 +18,13 @@ public class ComandoControladorReserva {
 
     private final ManejadorCrearReserva manejadorCrearReserva;
     private final ManejadorEliminarReserva manejadorEliminarReserva;
+    private final ManejadorActualizarReserva manejadorActualizarReserva;
 
     @Autowired
-    public ComandoControladorReserva(ManejadorCrearReserva manejadorCrearReserva, ManejadorEliminarReserva manejadorEliminarReserva) {
+    public ComandoControladorReserva(ManejadorCrearReserva manejadorCrearReserva, ManejadorEliminarReserva manejadorEliminarReserva, ManejadorActualizarReserva manejadorActualizarReserva) {
         this.manejadorCrearReserva = manejadorCrearReserva;
         this.manejadorEliminarReserva = manejadorEliminarReserva;
+        this.manejadorActualizarReserva = manejadorActualizarReserva;
     }
 
     @PostMapping
@@ -29,6 +32,14 @@ public class ComandoControladorReserva {
     public ComandoRespuesta<Long> crear(@RequestBody ComandoReserva comandoReserva){
         return  manejadorCrearReserva.ejecutar(comandoReserva);
     }
+
+    @PutMapping(value = "/{idReserva}")
+    @ApiOperation("Actualizar usuario")
+    public void actualizar(@RequestBody ComandoReserva comandoReserva,@PathVariable(name = "idReserva") Long id){
+        comandoReserva.setIdReserva(id);
+        manejadorActualizarReserva.ejecutar(comandoReserva);
+    }
+
 
     @DeleteMapping(value="/{idReserva}")
     @ApiOperation("Eliminar Usuario")
