@@ -114,17 +114,7 @@ public class Reserva {
 
     }
 
-    private Double calcularTarifa(String tipoCarro){
-        Double tarifa=0.0;
-
-        if (tipoCarro==AUTOMOVIL){
-            tarifa = TARIFA_AUTOMOVILES;
-        }
-        if (tipoCarro==CAMIONETA){
-            tarifa = TARIFA_CAMIONETA;
-        }
-        return tarifa;
-    }
+    
 
 
 
