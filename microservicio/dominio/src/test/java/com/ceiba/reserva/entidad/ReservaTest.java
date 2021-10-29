@@ -29,7 +29,10 @@ public class ReservaTest {
     private static final String EL_TIEMPO_DE_RESERVA_FINALIZO = "El horario disponible para hacer la reserva ya termino";
     private static final String EL_TIEMPO_PARA_RESERVAR_NO_HA_INICIADO = "Todavia no esta disponible el horario para hacer una reserva";
     private static final String NO_ACEPTAMOS_RESERVAS_LOS_FINES_DE_SEMANA = "Los fines de semana no permitimos hacer reservas";
+    private static final String SE_DEBE_INGRESAR_EL_TIPO_CARRO = "Se debe ingresar el tipo carro";
 
+    private static final String AUTOMOVIL = "Automovil";
+    private static final String CAMIONETA = "Camioneta";
 
     @Test
     @DisplayName("Deberia crear correctamente una reserva")
@@ -48,7 +51,6 @@ public class ReservaTest {
         assertEquals(5, reserva.getNoPuesto());
         assertEquals(fechaReserva, reserva.getFechaReserva());
         assertEquals(horaReserva, reserva.getHoraReserva());
-        assertEquals(40.000,reserva.getTarifa());
     }
 
     @Test
@@ -154,6 +156,29 @@ public class ReservaTest {
                     reservaTestDataBuilder.build();
                 },
                 ExcepcionValorInvalido.class, NO_ACEPTAMOS_RESERVAS_LOS_FINES_DE_SEMANA);
+    }
+
+    @Test
+    void deberiaFallarSinTipoCarro(){
+        ReservaTestDataBuilder reservaTestDataBuilder = new ReservaTestDataBuilder().conTipoCarro(null);
+
+        BasePrueba.assertThrows(() -> {
+            reservaTestDataBuilder.build();
+        },
+                ExcepcionValorObligatorio.class, SE_DEBE_INGRESAR_EL_TIPO_CARRO);
+
+    }
+
+    @Test
+    void deberiaCrearReservaConTipoCarroCamioneta(){
+        Reserva reserva = new ReservaTestDataBuilder().conIdUsuario(2L).conIdReserva(1L).conTipoCarro(CAMIONETA).build();
+        assertEquals(60.000, reserva.getTarifa());
+    }
+
+    @Test
+    void deberiaCrearReservaConTipoCarroAutomovil(){
+        Reserva reserva = new ReservaTestDataBuilder().conIdUsuario(2L).conIdReserva(1L).conTipoCarro(AUTOMOVIL).build();
+        assertEquals(40.000, reserva.getTarifa());
     }
 
 

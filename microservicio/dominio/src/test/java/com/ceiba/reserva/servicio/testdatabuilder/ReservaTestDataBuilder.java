@@ -34,15 +34,17 @@ public class ReservaTestDataBuilder {
     }
 
 
-    public ReservaTestDataBuilder conTipoCarro(String tipoCarro){
-        this.tipoCarro = tipoCarro;
-        return this;
-    }
+
 
 
     public ReservaTestDataBuilder conCodigo(String codigo){
             this.codigo = codigo;
             return this;
+    }
+
+    public ReservaTestDataBuilder conTipoCarro(String tipoCarro){
+        this.tipoCarro = tipoCarro;
+        return this;
     }
 
     public ReservaTestDataBuilder conPelicula(String pelicula){
@@ -86,7 +88,7 @@ public class ReservaTestDataBuilder {
     }
 
     public Reserva build(){
-        return new Reserva(id_reserva,codigo,pelicula,fechaCreacion,horaCreacion,fechaReserva,horaReserva,no_puesto, tipoCarro, id_usuario);
+        return new Reserva(id_reserva,codigo,pelicula,fechaCreacion,horaCreacion,fechaReserva,horaReserva,no_puesto,tipoCarro,id_usuario);
     }
 
 }

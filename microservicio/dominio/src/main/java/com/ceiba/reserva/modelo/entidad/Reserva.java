@@ -125,15 +125,15 @@ public class Reserva {
 
 
     private Double calcularTarifa(String tipoCarro){
-        Double tarifa=0.0;
+        Double tarifaFija=0.0;
 
         if (tipoCarro.equals(AUTOMOVIL)){
-            tarifa = TARIFA_AUTOMOVILES;
+            tarifaFija = TARIFA_AUTOMOVILES;
         }
         if (tipoCarro.equals(CAMIONETA)){
-            tarifa = TARIFA_CAMIONETA;
+            tarifaFija = TARIFA_CAMIONETA;
         }
-        return tarifa;
+        return tarifaFija;
     }
 
 
