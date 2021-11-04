@@ -54,7 +54,7 @@ public class ComandoReservaTestDataBuilder {
     }
 
     public ComandoReserva build(){
-        return new ComandoReserva(idReserva, codigo, pelicula, fechaCreacion,horaCreacion,fechaReserva,horaReserva,noPuesto, tipoCarro,idUsuario);
+        return new ComandoReserva(idReserva, codigo, pelicula, fechaCreacion,horaCreacion,fechaReserva,horaReserva,noPuesto,tipoCarro,idUsuario);
     }
 
 }
