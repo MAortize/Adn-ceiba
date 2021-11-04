@@ -1,5 +1,6 @@
 package com.ceiba.reserva.comando;
 
+import com.ceiba.reserva.modelo.entidad.TipoCarro;
 import com.ceiba.usuario.modelo.entidad.Usuario;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,7 +24,7 @@ public class ComandoReserva {
     private LocalDate fechaReserva;
     private LocalTime horaReserva;
     private Integer noPuesto;
-    private String tipoCarro;
+    private TipoCarro tipoCarro;
     private Long idUsuarioReserva;
 
 
