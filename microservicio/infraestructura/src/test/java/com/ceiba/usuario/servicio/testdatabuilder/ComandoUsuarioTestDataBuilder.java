@@ -10,15 +10,13 @@ public class ComandoUsuarioTestDataBuilder {
     private Long idUsuario;
     private String nombre;
     private String correo;
-    private String tipoCarro;
-    private String placa;
+
 
 
     public ComandoUsuarioTestDataBuilder() {
         nombre = UUID.randomUUID().toString();
         correo = "1234";
-        tipoCarro = "Automovil";
-        placa = "ABCD";
+
 
     }
 
@@ -28,6 +26,6 @@ public class ComandoUsuarioTestDataBuilder {
     }
 
     public ComandoUsuario build() {
-        return new ComandoUsuario(idUsuario,nombre, correo, tipoCarro, placa);
+        return new ComandoUsuario(idUsuario,nombre, correo);
     }
 }
