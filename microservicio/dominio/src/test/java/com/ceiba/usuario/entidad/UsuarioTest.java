@@ -17,8 +17,7 @@ public class UsuarioTest {
 
     private static final String SE_DEBE_INGRESAR_EL_CORREO = "Se debe ingresar ";
     private static final String SE_DEBE_INGRESAR_EL_NOMBRE_DE_USUARIO = "Se debe ingresar el nombre de usuario";
-    private static final String SE_DEBE_INGRESAR_EL_TIPO_DE_CARRO = "Se debe ingresar el tipo de carro";
-    private static final String SE_DEBE_INGRESAR_LA_PLACA_DEL_CARRO = "Se debe ingresar la placa del carro";
+
 
     @Test
     @DisplayName("Deberia crear correctamente el usuario")
@@ -30,8 +29,6 @@ public class UsuarioTest {
         assertEquals(1, usuario.getIdUsuario());
         assertEquals("1234", usuario.getNombre());
         assertEquals("1234", usuario.getCorreo());
-        assertEquals("Automovil", usuario.getTipoCarro());
-        assertEquals("ABCD", usuario.getPlaca());
     }
 
     @Test
@@ -59,32 +56,7 @@ public class UsuarioTest {
     }
 
 
-    @Test
-    void deberiaFallarSinPlaca(){
 
-        //Arrange
-        UsuarioTestDataBuilder usuarioTestDataBuilder = new UsuarioTestDataBuilder().conPlaca(null).conId(1L);
-        //act-assert
-        BasePrueba.assertThrows(() -> {
-                    usuarioTestDataBuilder.build();
-                },
-                ExcepcionValorObligatorio.class, SE_DEBE_INGRESAR_LA_PLACA_DEL_CARRO);
-
-    }
-
-
-    @Test
-    void deberiaFallarSinTipoCarro(){
-
-        //Arrange
-        UsuarioTestDataBuilder usuarioTestDataBuilder = new UsuarioTestDataBuilder().conTipoCarro(null).conId(1L);
-        //act-assert
-        BasePrueba.assertThrows(() -> {
-                    usuarioTestDataBuilder.build();
-                },
-                ExcepcionValorObligatorio.class, SE_DEBE_INGRESAR_EL_TIPO_DE_CARRO);
-
-    }
 
 
 

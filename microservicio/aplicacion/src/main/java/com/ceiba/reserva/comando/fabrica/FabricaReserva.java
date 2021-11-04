@@ -5,6 +5,9 @@ import com.ceiba.reserva.modelo.entidad.Reserva;
 import com.ceiba.usuario.comando.ComandoUsuario;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 @Component
 public class FabricaReserva {
 
@@ -13,8 +16,8 @@ public class FabricaReserva {
                 comandoReserva.getIdReserva(),
                 comandoReserva.getCodigo(),
                 comandoReserva.getPelicula(),
-                comandoReserva.getFechaCreacion(),
-                comandoReserva.getHoraCreacion(),
+                LocalDate.now(),
+                LocalTime.now(),
                 comandoReserva.getFechaReserva(),
                 comandoReserva.getHoraReserva(),
                 comandoReserva.getNoPuesto(),

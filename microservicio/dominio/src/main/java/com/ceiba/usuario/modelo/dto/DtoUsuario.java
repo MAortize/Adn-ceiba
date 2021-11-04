@@ -11,8 +11,6 @@ public class DtoUsuario {
     private Long idUsuario;
     private String nombre;
     private String correo;
-    private String tipoCarro;
-    private String placa;
 
 
 }

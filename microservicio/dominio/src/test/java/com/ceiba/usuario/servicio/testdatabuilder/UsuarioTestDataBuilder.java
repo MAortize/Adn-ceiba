@@ -9,15 +9,13 @@ public class UsuarioTestDataBuilder {
     private Long idUsuario;
     private String nombreUsuario;
     private String correo;
-    private String tipoCarro;
-    private String placa;
+
 
 
     public UsuarioTestDataBuilder() {
         nombreUsuario = "1234";
         correo = "1234";
-        tipoCarro = "Automovil";
-        placa = "ABCD";
+
 
     }
     public UsuarioTestDataBuilder conId(Long id) {
@@ -35,17 +33,9 @@ public class UsuarioTestDataBuilder {
         return this;
     }
 
-    public UsuarioTestDataBuilder conTipoCarro(String vehiculo){
-        this.tipoCarro = vehiculo;
-        return this;
-    }
 
-    public UsuarioTestDataBuilder conPlaca(String placa){
-        this.placa = placa;
-        return this;
-    }
 
     public Usuario build() {
-        return new Usuario(idUsuario,nombreUsuario,correo,tipoCarro,placa);
+        return new Usuario(idUsuario,nombreUsuario,correo);
     }
 }

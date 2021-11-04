@@ -12,10 +12,7 @@ public class FabricaUsuario {
         return new Usuario(
                 comandoUsuario.getIdUsuario(),
                 comandoUsuario.getNombre(),
-                comandoUsuario.getCorreo(),
-                comandoUsuario.getTipoCarro(),
-                comandoUsuario.getPlaca()
-
+                comandoUsuario.getCorreo()
         );
     }
 

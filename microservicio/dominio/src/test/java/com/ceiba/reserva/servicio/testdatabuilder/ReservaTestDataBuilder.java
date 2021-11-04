@@ -1,6 +1,7 @@
 package com.ceiba.reserva.servicio.testdatabuilder;
 
 import com.ceiba.reserva.modelo.entidad.Reserva;
+import com.ceiba.reserva.modelo.entidad.TipoCarro;
 import com.ceiba.usuario.modelo.entidad.Usuario;
 
 import java.time.LocalDate;
@@ -15,7 +16,7 @@ public class ReservaTestDataBuilder {
     private LocalDate fechaReserva;
     private LocalTime horaReserva;
     private Integer no_puesto;
-    private String tipoCarro;
+    private TipoCarro tipoCarro;
     private Long id_usuario;
 
 
@@ -25,10 +26,10 @@ public class ReservaTestDataBuilder {
         pelicula = "Avengers";
         fechaCreacion = LocalDate.now();
         horaCreacion = LocalTime.of(16,00);
-        fechaReserva = LocalDate.of(2021,10,30);
+        fechaReserva = LocalDate.of(2021,10,29);
         horaReserva = LocalTime.of(1,33);
         no_puesto = 5;
-        tipoCarro = "Automovil";
+        tipoCarro = TipoCarro.AUTOMOVIL;
         id_usuario = 1L;
 
     }
@@ -42,7 +43,7 @@ public class ReservaTestDataBuilder {
             return this;
     }
 
-    public ReservaTestDataBuilder conTipoCarro(String tipoCarro){
+    public ReservaTestDataBuilder conTipoCarro(TipoCarro tipoCarro){
         this.tipoCarro = tipoCarro;
         return this;
     }

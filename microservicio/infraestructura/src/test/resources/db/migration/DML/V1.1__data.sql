@@ -1,5 +1,5 @@
-insert into usuarios(id, nombre, correo, tipo_carro, placa) values(1,'test','1234','Automovil','ABCD');
-insert into usuarios(id, nombre, correo, tipo_carro, placa) values(2,'test1','12345','Camioneta','ABCD');
+insert into usuarios(id, nombre, correo) values(1,'test','1234');
+insert into usuarios(id, nombre, correo) values(2,'test1','12345');
 
 insert into reservas (id,codigo,pelicula,fecha_creacion,hora_creacion,fecha_reserva,
 					 hora_reserva, no_puesto, tarifa, id_usuario_fk)

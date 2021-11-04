@@ -4,6 +4,7 @@ import com.ceiba.BasePrueba;
 import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
 import com.ceiba.dominio.excepcion.ExcepcionValorObligatorio;
 import com.ceiba.reserva.modelo.entidad.Reserva;
+import com.ceiba.reserva.modelo.entidad.TipoCarro;
 import com.ceiba.reserva.servicio.testdatabuilder.ReservaTestDataBuilder;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -37,7 +38,7 @@ public class ReservaTest {
     void deberiaCrearCorrectamenteUnaReserva() {
 
         //arrange
-        LocalDate fechaReserva = LocalDate.of(2021,10,30);
+        LocalDate fechaReserva = LocalDate.of(2021,10,29);
         LocalTime horaReserva = LocalTime.of(1, 33);
         //act
         Reserva reserva = new ReservaTestDataBuilder().conIdUsuario(2L).conIdReserva(1L).build();
@@ -140,7 +141,7 @@ public class ReservaTest {
 
     @Test
     void deberiaFallarSiHaceLaReservaEnSabado(){
-        ReservaTestDataBuilder reservaTestDataBuilder = new ReservaTestDataBuilder().conFechaCreacion(calcNextDay(DayOfWeek.SATURDAY));
+        ReservaTestDataBuilder reservaTestDataBuilder = new ReservaTestDataBuilder().conFechaReserva(calcNextDay(DayOfWeek.SATURDAY));
         BasePrueba.assertThrows(() -> {
             reservaTestDataBuilder.build();
                 },
@@ -149,12 +150,32 @@ public class ReservaTest {
 
     @Test
     void deberiaFallarSiHaceLaReservaENDomingo(){
+        ReservaTestDataBuilder reservaTestDataBuilder = new ReservaTestDataBuilder().conFechaReserva(calcNextDay(DayOfWeek.SUNDAY));
+        BasePrueba.assertThrows(() -> {
+                    reservaTestDataBuilder.build();
+                },
+                ExcepcionValorInvalido.class, NO_ACEPTAMOS_RESERVAS_LOS_FINES_DE_SEMANA);
+    }
+
+    @Test
+    void deberiaFallarSiCreaLaReservaEnSabado(){
+        ReservaTestDataBuilder reservaTestDataBuilder = new ReservaTestDataBuilder().conFechaCreacion(calcNextDay(DayOfWeek.SATURDAY));
+        BasePrueba.assertThrows(() -> {
+                    reservaTestDataBuilder.build();
+                },
+                ExcepcionValorInvalido.class, NO_ACEPTAMOS_RESERVAS_LOS_FINES_DE_SEMANA);
+    }
+
+    @Test
+    void deberiaFallarSiCreaLaReservaENDomingo(){
         ReservaTestDataBuilder reservaTestDataBuilder = new ReservaTestDataBuilder().conFechaCreacion(calcNextDay(DayOfWeek.SUNDAY));
         BasePrueba.assertThrows(() -> {
                     reservaTestDataBuilder.build();
                 },
                 ExcepcionValorInvalido.class, NO_ACEPTAMOS_RESERVAS_LOS_FINES_DE_SEMANA);
     }
+
+
 
     @Test
     void deberiaFallarSinTipoCarro(){
@@ -169,13 +190,13 @@ public class ReservaTest {
 
     @Test
     void deberiaCrearReservaConTipoCarroCamioneta(){
-        Reserva reserva = new ReservaTestDataBuilder().conIdUsuario(2L).conIdReserva(1L).conTipoCarro(CAMIONETA).build();
+        Reserva reserva = new ReservaTestDataBuilder().conIdUsuario(2L).conIdReserva(1L).conTipoCarro(TipoCarro.CAMIONETA).build();
         assertEquals(60.000, reserva.getTarifa());
     }
 
     @Test
     void deberiaCrearReservaConTipoCarroAutomovil(){
-        Reserva reserva = new ReservaTestDataBuilder().conIdUsuario(2L).conIdReserva(1L).conTipoCarro(AUTOMOVIL).build();
+        Reserva reserva = new ReservaTestDataBuilder().conIdUsuario(2L).conIdReserva(1L).conTipoCarro(TipoCarro.AUTOMOVIL).build();
         assertEquals(40.000, reserva.getTarifa());
     }
 
