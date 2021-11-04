@@ -17,7 +17,7 @@ public class FabricaReserva {
                 comandoReserva.getCodigo(),
                 comandoReserva.getPelicula(),
                 LocalDate.now(),
-                LocalTime.now(),
+                LocalTime.of(16,00),
                 comandoReserva.getFechaReserva(),
                 comandoReserva.getHoraReserva(),
                 comandoReserva.getNoPuesto(),
